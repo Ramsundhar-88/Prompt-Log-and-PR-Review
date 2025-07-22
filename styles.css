@@ -1,4 +1,10 @@
 /* Hero Section Centering & Styling */
+
+/* Prompt 1 – Hero Section Centering & Styling
+Prompt:
+“How to center text and button in the .hero section vertically and horizontally using Flexbox and make it responsive with a large background image?”
+
+ */
 .hero {
     display: flex;
     flex-direction: column;
@@ -54,6 +60,10 @@
     }
 }
 
+/* Prompt 2 – Product Card Hover Effects
+Prompt:
+“Give CSS for .product-card to add a soft shadow, rounded corners, and a hover effect where the card slightly scales up with a smooth transition.” */
+
 /* Product Card Hover Effects */
 .product-card {
     background: #fff;
@@ -92,4 +102,159 @@
 
 .product-card button:hover {
     background: #e55d50;
+}
+
+/* 
+Prompt 3 – Responsive Navigation Bar
+Prompt:
+“How to style the <header> with Flexbox to align the logo on the left and navigation links on the right, and make it responsive with a hamburger menu for small screens?” */
+/* Header Flexbox Layout */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 2rem;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    position: relative;
+    z-index: 10;
+}
+
+header h1 {
+    font-size: 2rem;
+    color: #ff6f61;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+header nav {
+    display: flex;
+    gap: 2rem;
+}
+
+header nav a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: color 0.2s;
+}
+
+header nav a:hover {
+    color: #ff6f61;
+}
+
+/* Hamburger menu styles */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    z-index: 20;
+}
+
+.hamburger span {
+    height: 4px;
+    width: 100%;
+    background: #ff6f61;
+    margin: 5px 0;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+/* 
+
+
+Prompt 4 – Modern Button Design
+Prompt:
+“Create a modern button style with padding, gradient background, rounded corners, and a hover animation that slightly darkens the button color.” */
+
+/* Responsive Header */
+@media (max-width: 768px) {
+    header {
+        padding: 1rem;
+    }
+    header nav {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: #fff;
+        flex-direction: column;
+        align-items: flex-end;
+        width: 180px;
+        gap: 1.2rem;
+        padding: 1.5rem 1rem;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        transform: translateY(-200%);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform 0.3s, opacity 0.3s;
+    }
+    header nav.active {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+    .hamburger {
+        display: flex;
+    }
+}
+
+/* Optional: Hamburger animation when active */
+.hamburger.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Modern Gradient Button Style */
+.modern-btn {
+    padding: 0.75rem 2.2rem;
+    font-size: 1.05rem;
+    border: none;
+    border-radius: 2rem;
+    background: linear-gradient(90deg, #ff6f61 0%, #ff9472 100%);
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(255,111,97,0.12);
+    transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+}
+
+.modern-btn:hover {
+    background: linear-gradient(90deg, #e55d50 0%, #ff7e5f 100%);
+    box-shadow: 0 4px 16px rgba(255,111,97,0.18);
+    transform: translateY(-2px) scale(1.03);
+}
+
+/* Prompt 5 – Responsive Grid for Products
+Prompt:
+“How to display .products section as a responsive grid with 3 columns on desktop, 2 columns on tablets, and 1 column on mobile using CSS grid?” */
+
+/* Responsive Products Grid */
+.products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    justify-items: center;
+    padding: 2rem 0;
+}
+
+@media (max-width: 1024px) {
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .products {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+        padding: 1rem 0;
+    }
 }
